@@ -1,0 +1,28 @@
+# Base images 基础镜像
+FROM python:3.10.11
+
+# MAINTAINER 维护者信息
+maintainer linqinloong
+
+# 创建工作目录
+RUN mkdir -p /data/www/
+
+# 工作目录
+WORKDIR /data/www/
+
+# RUN 执行以下命令
+RUN apt update
+RUN apt upgrade -y
+RUN pip install --upgrade pip
+RUN pip install flask
+RUN pip install uwsgi
+
+# 暴露端口
+EXPOSE 8000
+
+# 拷贝文件至工作目录
+COPY app.py /data/www/app.py
+COPY uwsgi.ini /data/www/uwsgi.ini
+COPY start_command.sh /data/www/start_command.sh
+
+CMD ["./start_command.sh"]
