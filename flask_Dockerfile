@@ -25,4 +25,8 @@ COPY app.py /data/www/app.py
 COPY uwsgi.ini /data/www/uwsgi.ini
 COPY start_command.sh /data/www/start_command.sh
 
+# 给执行文件赋予执行权限
+RUN chmod +x /data/www/start_command.sh
+RUN chmod +x /data/www/uwsgi.ini
+
 CMD ["./start_command.sh"]
