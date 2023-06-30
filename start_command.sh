@@ -1,4 +1,4 @@
 #!/bin/bash
 
-# python3 app.py
+# python3 main.py
 uwsgi --ini uwsgi.ini

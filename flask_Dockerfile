@@ -22,7 +22,7 @@ RUN pip install uwsgi
 EXPOSE 8000
 
 # 拷贝文件至工作目录
-COPY app.py /data/www/app.py
+COPY main.py /data/www/main.py
 COPY uwsgi.ini /data/www/uwsgi.ini
 COPY start_command.sh /data/www/start_command.sh
 
