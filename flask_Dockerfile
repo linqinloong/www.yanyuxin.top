@@ -13,6 +13,7 @@ WORKDIR /data/www/
 # RUN 执行以下命令
 RUN apt update
 RUN apt upgrade -y
+RUN apt install vim -y
 RUN pip install --upgrade pip
 RUN pip install flask
 RUN pip install uwsgi
@@ -28,5 +29,12 @@ COPY start_command.sh /data/www/start_command.sh
 # 给执行文件赋予执行权限
 RUN chmod +x /data/www/start_command.sh
 RUN chmod +x /data/www/uwsgi.ini
+
+# uwsgi
+RUN mkdir uwsgi
+RUN touch uwsgi/uwsgi.pid
+RUN touch uwsgi/uwsgi.sock
+RUN touch uwsgi/uwsgi.status
+RUN touch uwsgi/uwsgi.log
 
 CMD ["./start_command.sh"]
