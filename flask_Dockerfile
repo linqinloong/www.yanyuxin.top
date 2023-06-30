@@ -30,11 +30,5 @@ COPY start_command.sh /data/www/start_command.sh
 RUN chmod +x /data/www/start_command.sh
 RUN chmod +x /data/www/uwsgi.ini
 
-# uwsgi
-RUN mkdir uwsgi
-RUN touch uwsgi/uwsgi.pid
-RUN touch uwsgi/uwsgi.sock
-RUN touch uwsgi/uwsgi.status
-RUN touch uwsgi/uwsgi.log
 
-CMD ["./start_command.sh"]
+ENTRYPOINT ["./start_command.sh"]
