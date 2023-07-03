@@ -27,4 +27,5 @@ db = pymysql.connect(
 )
 
 curses = db.cursor()
-curses.execute('insert into user (username, age) values ("张三", 20)')
+curses.execute('insert into user (username, age) values ("linqinloong", 20)')
+db.commit()
